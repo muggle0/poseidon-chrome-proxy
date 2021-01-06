@@ -12,6 +12,8 @@ addBtn.onclick = addItem;
 qqBtn.onclick = save;
 ymBtn.onclick = onOffEnvent;
 
+window.onbeforeunload =save
+
 window.onload = function() {
 	var list = bg.getValue('RatelHttpProxy');
 	var onOff = bg.getValue('RatelHttpProxy-onOff');
