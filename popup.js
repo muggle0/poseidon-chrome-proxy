@@ -15,25 +15,14 @@ ymBtn.onclick = onOffEnvent;
 window.onbeforeunload =save
 
 window.onload = function() {
-	var list = bg.getValue('RatelHttpProxy');
-	var onOff = bg.getValue('RatelHttpProxy-onOff');
-	var url = bg.getValue('RatelHttpProxy-url');
-	ymBtn.checked = onOff == "true";
-	siteInput.value = url;
-	
-	console.log(JSON.stringify(list))
-	console.log(JSON.stringify(onOff))
-	if (list == null || list.length == 0) {
-		addItem();
-		bg.setJob(String(function FindProxyForURL(url, host) {
-			return 'DIRECT'
-		}))
-	} else {
-		// bg.proxyList =  eval('(' + list + ')');
-		bg.proxyList = JSON.parse(list)
-		reload();
-		bindDelEnvent();
-		bg.setJob(convertJsonStr(bg.proxyList))
+	var proxyList = localStorage.getValue("proxy_list");
+	if (proxyList == null) {
+		localStorage.setItem("poseidon_onoff", true);
+		localStorage.setItem("proxy_list", [{
+			"perfix": "/ioc/api/wallChart/",
+			"host": "http://ipcrio-dev-121.pdcts.com.cn",
+			"target": "127.0.0.1:8888"
+		}])
 	}
 }
 
