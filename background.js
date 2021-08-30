@@ -1,3 +1,4 @@
+/*
 
 chrome.proxy.settings.set({
 	value: {
@@ -36,7 +37,8 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 			});
 			return {requestHeaders: details.requestHeaders};
 		},
-		{urls: ["http://ipcrio-dev-121.pdcts.com.cn/*"]},
+		{urls: ["http://ipcrio-dev-121.pdcts.com.cn/!*"]},
 		["blocking", "requestHeaders"]
 );
 
+*/
