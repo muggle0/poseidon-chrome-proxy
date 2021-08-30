@@ -26,7 +26,7 @@ chrome.proxy.settings.set({
 		}
 	},
 	scope: 'regular'
-})
+});
 chrome.webRequest.onBeforeSendHeaders.addListener(
 		function(details) {
 			var headers = details.requestHeaders;
@@ -39,3 +39,4 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 		{urls: ["http://ipcrio-dev-121.pdcts.com.cn/*"]},
 		["blocking", "requestHeaders"]
 );
+
