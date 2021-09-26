@@ -1,115 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Document</title>
-	</head>
-	<body  style="margin: 10px 0px;padding: 0px;background-image: url(bg1.jpg)">
-		<div id="proxy">
-			<table>
-				<tr>
-					<td colspan="4">
-						<h2>poseidon-proxy</h2>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>开关</span>
-					</td>
-					<td>
-						<input type="checkbox" id="switch" class="chooseBtn"/>
-						<label for="switch" class="choose-label a2">
-						</label>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span >域名</span>
-					</td>
-					<td>
-						 <input type="text"  name='domain' id="domain"/>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span >url表达式</span>
-					</td>
-					<td>
-						<textarea  style="height: 100px" id="urlEx"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span >请求头表达式</span>
-					</td>
-					<td>
-						<textarea style="height: 100px" id="headEx"></textarea>
-					</td>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="margin: 10px 0px;padding: 0px;background-image: url(bg1.jpg)">
+<div id="proxy" style="width: 300px">
+    <table>
+        <tr>
+            <td colspan="4">
+                <h2>poseidon-proxy</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="switch" class="chooseBtn"/>
+                <label for="switch" class="choose-label a2">
+                </label>
+            </td>
+            <td>
+                <button  style='margin: 7px;' id='save'>保 存</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>域名</span>
+            </td>
+            <td>
+                <input type="text" name='domain' id="domain"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>url表达式</span>
+            </td>
+            <td>
+                <textarea style="height: 100px" id="urlEx"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>请求头表达式</span>
+            </td>
+            <td>
+                <textarea style="height: 100px" id="headEx"></textarea>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
 
-				</tr>
-			</table>
+<script type="text/javascript" src="./popup.js">
 
-			  <div class="app1">
+</script>
+<style>
 
+    .choose-label {
+        box-shadow: #ccc 0px 0px 0px 1px;
+        width: 30px;
+        /*长条长度*/
+        height: 15px;
+        /*长条高度*/
+        display: inline-block;
+        border-radius: 20px;
+        position: relative;
+        background-color: #bdbdbd;
+        overflow: hidden;
+    }
 
-			    </div>
+    /*小圆点*/
+    .choose-label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 15px;
+        /*圆点半径*/
+        height: 15px;
+        /*圆点半径*/
+        display: inline-block;
+        border-radius: 10px;
+        background-color: #fff;
+        z-index: 20;
+        -webkit-transition: all 0.28s;
+        transition: all 0.28s;
+    }
 
-		</div>
-	</body>
+    .chooseBtn:checked + label.choose-label:before {
+        left: 15px;
+    }
 
-	<script type="text/javascript" src="./popup.js">
+    .chooseBtn:checked + label.choose-label {
+        background-color: #3CB371;
+    }
 
-	</script>
-	<style>
-
-		.choose-label {
-			box-shadow: #ccc 0px 0px 0px 1px;
-			width: 30px;
-			/*长条长度*/
-			height: 15px;
-			/*长条高度*/
-			display: inline-block;
-			border-radius: 20px;
-			position: relative;
-			background-color: #bdbdbd;
-			overflow: hidden;
-		}
-
-		/*小圆点*/
-		.choose-label:before {
-			content: '';
-			position: absolute;
-			left: 0;
-			width: 15px;
-			/*圆点半径*/
-			height: 15px;
-			/*圆点半径*/
-			display: inline-block;
-			border-radius: 10px;
-			background-color: #fff;
-			z-index: 20;
-			-webkit-transition: all 0.28s;
-			transition: all 0.28s;
-		}
-
-		.chooseBtn:checked+label.choose-label:before {
-			left: 15px;
-		}
-
-		.chooseBtn:checked+label.choose-label {
-			background-color: #3CB371;
-		}
-		.chooseBtn {
-			display: none;
-		}
+    .chooseBtn {
+        display: none;
+    }
 
 
-
-
-	</style>
-
+</style>
 
 
 </html>

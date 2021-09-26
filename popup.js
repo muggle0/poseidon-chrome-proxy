@@ -9,13 +9,16 @@ window.onload = function() {
 	const storeHeadEx = bg.localStorage.getItem("headEx");
 	const urlEx = document.getElementById("urlEx");
 	const headEx = document.getElementById("headEx");
-	switchKey.checked=storeSwitch;
+	switchKey.checked=(storeSwitch==='true');
 	domain.innerText=storeDomain;
 	urlEx.innerText=storeUrlEx;
 	headEx.innerText=storeHeadEx;
 }
 
-window.onclose=function () {
+window.onbeforeunload=save;
+document.getElementById("save").onclick=save;
+
+function save(){
 	const switchKey = document.getElementById("switch");
 	bg.localStorage.setItem("switch",switchKey.checked)
 	const domain = document.getElementById("domain");
